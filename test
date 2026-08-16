@@ -1,0 +1,31 @@
+az ad sp create-for-rbac --name "my-service-principal" --role Contributor --scopes /subscriptions/6fa69f1d-954f-4f37-a63f-42ce07ad077d
+az ad sp create-for-rbac --name "terraform-contributor-sp" --role Contributor --scopes /subscriptions/6fa69f1d-954f-4f37-a63f-42ce07ad077d
+
+
+app id is the client ID and the password is the client secret. You can use these credentials to authenticate your Terraform scripts with Azure.
+
+
+{
+  "appId": "6bf8baa1-4182-4eca-88f0-b74a6991a539",
+  "displayName": "terraform-contributor-sp",
+  "password": "E4V8Q~VWxeZcJE4aDtjfaPZkt6Zmz_6P2juu4beA",
+  "tenant": "bd76d966-d0f0-48e0-8b73-b434bea6fd84"
+}
+
+
+az login --service-principal -u 6bf8baa1-4182-4eca-88f0-b74a6991a539 -p E4V8Q~VWxeZcJE4aDtjfaPZkt6Zmz_6P2juu4beA --tenant bd76d966-d0f0-48e0-8b73-b434bea6fd84
+
+
+After RUN
+
+ "isDefault": true,
+    "managedByTenants": [],
+    "name": "Azure subscription 1",
+    "state": "Enabled",
+    "tenantId": "bd76d966-d0f0-48e0-8b73-b434bea6fd84",
+    "user": {
+      "name": "6bf8baa1-4182-4eca-88f0-b74a6991a539",
+      "type": "servicePrincipal"
+    }
+  }
+]
